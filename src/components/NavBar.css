@@ -1,0 +1,39 @@
+
+.nav-bar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 30px 0 20px 0;
+    text-shadow: 1px 1px 7px #000;
+    letter-spacing: 2px;
+    font-family: monospace;
+    font-size: 20px;
+    color: var(--light);
+    
+}
+
+li {
+    list-style-type: none;
+    text-decoration: underline;
+    text-underline-position: under;
+    padding: 10px;
+    cursor: pointer;
+}
+
+li:hover {
+    background-color: var(--dark);
+}
+
+a:link {
+    color: var(--light);
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--light);
+    text-decoration: none;
+}
+
+.active {
+    background-color: var(--dark);
+}

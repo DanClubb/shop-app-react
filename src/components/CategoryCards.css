@@ -1,0 +1,56 @@
+.card-container {
+    width: fit-content;
+    margin: 25px auto 0 auto;
+    display: grid;
+    grid-template-columns: 450px 450px;
+    grid-gap: 45px;
+}
+
+.card {
+    height: 250px;
+    width: 450px;
+    position: relative;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+    border-radius: 10px;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, .8);
+    transition: transform 0.4s;
+}
+
+.card:hover {
+    transform: scale(1.12);
+}
+
+h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(87, 85, 85);
+    text-shadow: 1px 1px 7px #000;
+    color: rgb(247, 245, 245);
+    font-size: 45px;
+    font-family: monospace;
+    font-weight: normal;
+    white-space: nowrap;
+    margin: 0;
+    opacity: .85;
+}
+
+.men {
+    background-image: url("https://images.medicinenet.com/images/article/main_image/average-height-for-men.jpg");
+}
+
+.women {
+    background-image: url("https://static.independent.co.uk/s3fs-public/thumbnails/image/2020/03/05/10/istock-1137700343.jpg?width=982&height=726&auto=webp&quality=75");
+}
+
+.electronics {
+    background-image: url("https://www.online-tech-tips.com/wp-content/uploads/2019/12/electronic-gadgets.jpeg");
+}
+
+.jewellery {
+    background-image: url("https://www.countryandtownhouse.co.uk/wp-content/uploads/2020/09/Vintage-jewellery.jpg");
+}

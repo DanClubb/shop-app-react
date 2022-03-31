@@ -1,0 +1,61 @@
+.icon-container {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.icon {
+  margin: 0 10px;
+  transition: all 0.25s;
+  cursor: pointer;
+  border: 2px solid rgb(87, 85, 85);
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon:hover {
+  transform: scale(1.15);
+  background-color: #fff;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.8);
+}
+
+.icon:active {
+  transform: scale(1);
+}
+
+.icon-home {
+  margin: 0 auto 0 25px;
+}
+
+.icon-profile {
+  margin-right: 25px;
+}
+
+.login {
+  height: 44px;
+  margin: 0 10px;
+  transition: all 0.25s;
+  cursor: pointer;
+  border: 2px solid rgb(87, 85, 85);
+  border-radius: 5px;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 17px;
+  letter-spacing: 0.5px;
+  background-color: transparent;
+  vertical-align: middle;
+  margin-right: 25px;
+}
+
+.login:hover {
+  transform: scale(1.15);
+  background-color: #fff;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.8);
+}
+
+.login:active {
+  transform: scale(1);
+}
