@@ -7,13 +7,9 @@ import Jewellery from "./pages/Jewellery";
 import Electronics from "./pages/Electronics";
 import ShoppingCart from "./pages/ShoppingCart";
 import Login from "./pages/Login";
-import { useContext } from "react";
-import AuthContext from "./store/auth-context";
+import Account from "./pages/Account";
 
 function App() {
-  const authCtx = useContext(AuthContext);
-  const isLoggedIn = authCtx.isLoggedIn;
-
   return (
     <div>
       <IconBar />
@@ -39,17 +35,7 @@ function App() {
         <Login />
       </Route>
       <Route path="/account">
-        {!isLoggedIn && (
-          <div>
-            <p>You need to login to view this page.</p>
-          </div>
-        )}
-        {isLoggedIn && (
-          <div>
-            <h1>Your Account</h1>
-            <button onClick={authCtx.logout}>Log Out</button>
-          </div>
-        )}
+        <Account />
       </Route>
     </div>
   );
