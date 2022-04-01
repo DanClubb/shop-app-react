@@ -39,11 +39,34 @@ function Products({ products }) {
       {products.map((product) => (
         <article className="product">
           <img className="product__img" src={product.image} alt="" />
-          <label>
+          <label className="product-price">
             Price:
             <span>{" " + product.price}</span>
           </label>
-          <label>
+          <label className="product-description">
+            Description:
+            <span>{" " + product.description}</span>
+          </label>
+          <button
+            className="btn-add"
+            onClick={() => addProductToLocalStorage(product)}
+          >
+            {console.log(alreadyStored)}
+            {/* {alreadyStored && "ADDED ✓"} */}
+            {/* {!alreadyStored && "ADD to Cart"} */}
+            ADD to Cart
+          </button>
+        </article>
+      ))}
+
+      {products.map((product) => (
+        <article className="product">
+          <img className="product__img" src={product.image} alt="" />
+          <label className="product-price">
+            Price:
+            <span>{" " + product.price}</span>
+          </label>
+          <label className="product-description">
             Description:
             <span>{" " + product.description}</span>
           </label>
