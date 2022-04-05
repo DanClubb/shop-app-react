@@ -22,12 +22,6 @@ function Products({ products }) {
   const addProductToLocalStorage = (product) => {
     checkIfProductInLocalStorage(product);
     if (!alreadyStored) {
-      if (localStorage.getItem("products")) {
-        productsToStore.products = JSON.parse(
-          localStorage.getItem("products")
-        ).products;
-      }
-
       productsToStore.products.push(product);
       let productsToStore_serialized = JSON.stringify(productsToStore);
       localStorage.setItem("products", productsToStore_serialized);
@@ -51,9 +45,6 @@ function Products({ products }) {
             className="btn-add"
             onClick={() => addProductToLocalStorage(product)}
           >
-            {console.log(alreadyStored)}
-            {/* {alreadyStored && "ADDED ✓"} */}
-            {/* {!alreadyStored && "ADD to Cart"} */}
             ADD to Cart
           </button>
         </article>
