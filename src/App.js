@@ -1,5 +1,5 @@
 import { Route } from "react-router-dom";
-import IconBar from "./components/IconBar";
+import IconBar from "./components/UI/IconBar";
 import Home from "./pages/Home";
 import Men from "./pages/Men";
 import Women from "./pages/Women";

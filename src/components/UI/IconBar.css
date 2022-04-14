@@ -1,5 +1,9 @@
 .icon-container {
   display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   align-items: center;
   margin-top: 30px;
 }

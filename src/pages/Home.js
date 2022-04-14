@@ -1,4 +1,4 @@
-import CategoryCards from "../components/CategoryCards";
+import CategoryCards from "../components/UI/CategoryCards";
 
 function Home() {
   return (
@@ -9,4 +9,4 @@ function Home() {
   );
 }
 
-export default Home
+export default Home;

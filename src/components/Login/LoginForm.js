@@ -1,6 +1,6 @@
 import "./LoginForm.css";
 import { useContext, useRef, useState } from "react";
-import AuthContext from "../store/auth-context";
+import AuthContext from "../../store/auth-context";
 import { useHistory } from "react-router-dom";
 
 function LoginForm() {

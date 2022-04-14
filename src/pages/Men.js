@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import NavBar from "../components/NavBar";
+import NavBar from "../components/UI/NavBar";
 import db from "../firestore";
 import { collection, getDocs } from "firebase/firestore";
-import Products from "../components/Products";
+import Products from "../components/Products/Products";
 
 function Men() {
   const [products, setProducts] = useState([]);

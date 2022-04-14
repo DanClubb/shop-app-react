@@ -1,4 +1,4 @@
-import "../components/Products.css";
+import "./Products.css";
 
 function Products({ products }) {
   let productsToStore = {
@@ -22,7 +22,9 @@ function Products({ products }) {
   const addProductToLocalStorage = (product) => {
     checkIfProductInLocalStorage(product);
     if (!alreadyStored) {
-      productsToStore.products.push(product);
+      let idKey = product.id;
+      productsToStore.products.push({ ...product, [idKey]: 1 });
+      console.log(productsToStore);
       let productsToStore_serialized = JSON.stringify(productsToStore);
       localStorage.setItem("products", productsToStore_serialized);
     }
@@ -30,12 +32,12 @@ function Products({ products }) {
 
   return (
     <main className="products-container">
-      {products.map((product) => (
-        <article className="product">
+      {products.map((product, index) => (
+        <article key={index} className="product">
           <img className="product__img" src={product.image} alt="" />
           <label className="product-price">
             Price:
-            <span>{" " + product.price}</span>
+            <span>{" £" + product.price}</span>
           </label>
           <label className="product-description">
             Description:
@@ -55,7 +57,7 @@ function Products({ products }) {
           <img className="product__img" src={product.image} alt="" />
           <label className="product-price">
             Price:
-            <span>{" " + product.price}</span>
+            <span>{" £" + product.price}</span>
           </label>
           <label className="product-description">
             Description:
