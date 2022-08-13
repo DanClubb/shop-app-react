@@ -1,17 +1,21 @@
 import "./Checkout.css";
+import { useUser } from "../../store/cart-context";
 
-function Checkout({ products }) {
+function Checkout() {
+  let { basket } = useUser();
+
   const calculateTotalPrice = () => {
-    let totalPrice = products.reduce((total, price) => {
-      return total + price.price;
+    let totalPrice = Object.keys(basket).reduce((total, id) => {
+      return total + basket[id].price * basket[id].quantity;
     }, 0);
     return totalPrice;
   };
 
   return (
     <div className="checkout">
-      <p className="total-price">Total: </p>
-      <span>{" £" + calculateTotalPrice()}</span>
+      <p className="total-price">
+        Total:<span>{" £" + calculateTotalPrice()}</span>{" "}
+      </p>
       <button className="checkout-button">Checkout</button>
     </div>
   );

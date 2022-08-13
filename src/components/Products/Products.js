@@ -1,79 +1,62 @@
 import "./Products.css";
+import { useUser } from "../../store/cart-context";
 
-function Products({ products }) {
-  let productsToStore = {
-    products: localStorage.getItem("products")
-      ? JSON.parse(localStorage.getItem("products")).products
-      : [],
-  };
-  let alreadyStored = false;
+function Products(props) {
+  let { productsInBasket, products, addToBasket } = useUser();
 
-  const checkIfProductInLocalStorage = (product) => {
-    for (let i = 0; i < productsToStore.products.length; i++) {
-      if (product.id === productsToStore.products[i].id) {
-        alreadyStored = true;
-        return;
-      } else {
-        alreadyStored = false;
-      }
-    }
-  };
-
-  const addProductToLocalStorage = (product) => {
-    checkIfProductInLocalStorage(product);
-    if (!alreadyStored) {
-      let idKey = product.id;
-      productsToStore.products.push({ ...product, [idKey]: 1 });
-      console.log(productsToStore);
-      let productsToStore_serialized = JSON.stringify(productsToStore);
-      localStorage.setItem("products", productsToStore_serialized);
-    }
+  const categoryFilter = (id, category) => {
+    return products[id].category === category;
   };
 
   return (
     <main className="products-container">
-      {products.map((product, index) => (
-        <article key={index} className="product">
-          <img className="product__img" src={product.image} alt="" />
-          <label className="product-price">
-            Price:
-            <span>{" £" + product.price}</span>
-          </label>
-          <label className="product-description">
-            Description:
-            <span>{" " + product.description}</span>
-          </label>
-          <button
-            className="btn-add"
-            onClick={() => addProductToLocalStorage(product)}
-          >
-            ADD to Cart
-          </button>
-        </article>
-      ))}
+      {Object.keys(products)
+        .filter((id) => categoryFilter(id, props.category))
+        .map((id, index) => (
+          <article key={index} className="product">
+            <img className="product__img" src={products[id].image} alt="" />
+            <label className="product-price">
+              Price:
+              <span>{" £" + products[id].price}</span>
+            </label>
+            <label className="product-description">
+              Description:
+              <span>{" " + products[id].description}</span>
+            </label>
+            <button
+              className="btn-add"
+              onClick={() => addToBasket(id, products[id].price)}
+            >
+              {productsInBasket.includes(id) && "In Cart"}
+              {!productsInBasket.includes(id) && "ADD to Cart"}
+              {/* <span className="inline-remove">X</span> */}
+            </button>
+          </article>
+        ))}
 
-      {products.map((product) => (
-        <article className="product">
-          <img className="product__img" src={product.image} alt="" />
-          <label className="product-price">
-            Price:
-            <span>{" £" + product.price}</span>
-          </label>
-          <label className="product-description">
-            Description:
-            <span>{" " + product.description}</span>
-          </label>
-          <button
-            className="btn-add"
-            onClick={() => addProductToLocalStorage(product)}
-          >
-            {console.log(alreadyStored)}
-            {/* {alreadyStored && "ADDED ✓"} */}
-            {/* {!alreadyStored && "ADD to Cart"} */}
-            ADD to Cart
-          </button>
-        </article>
-      ))}
+      {Object.keys(products)
+        .filter((id) => {
+          return products[id].category === props.category;
+        })
+        .map((id, index) => (
+          <article key={index} className="product">
+            <img className="product__img" src={products[id].image} alt="" />
+            <label className="product-price">
+              Price:
+              <span>{" £" + products[id].price}</span>
+            </label>
+            <label className="product-description">
+              Description:
+              <span>{" " + products[id].description}</span>
+            </label>
+            <button
+              className="btn-add"
+              // onClick={() => addProductToLocalStorage(id)}
+            >
+              ADD to Cart
+            </button>
+          </article>
+        ))}
     </main>
   );
 }

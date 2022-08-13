@@ -1,0 +1,44 @@
+.account-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.admin-selection {
+  margin: 30px 0;
+  color: var(--dark);
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 1.3px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100%;
+  margin-top: 30px;
+}
+
+.account-btn {
+  height: 50px;
+  width: 20%;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 100px;
+  border: 2px solid rgb(87, 85, 85);
+  background-color: rgb(87, 85, 85);
+  color: #fff;
+  cursor: pointer;
+  margin: 20px 0;
+}
+
+.add-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+  width: 100%;
+}
