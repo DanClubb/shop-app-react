@@ -1,9 +1,8 @@
 .products-container {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  width: 93%;
+  width: 1500px;
   margin: 0 auto;
 }
 
@@ -17,14 +16,16 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 30px 40px;
+  margin: 30px 61px;
   padding: 10px;
+  width: 378px;
   height: 634px;
 }
 
 .product__img {
   height: 350px;
   width: 350px;
+  border-radius: 15px 15px 0 0;
 }
 
 .product-price {

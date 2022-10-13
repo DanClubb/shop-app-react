@@ -18,10 +18,6 @@ function Admin({ isAdmin }) {
     <div>
       <h1>Your Account</h1>
       <div className="account-options">
-        <div className="admin-selection">
-          <label htmlFor="admin">Admin</label>
-          <input id="admin" type="checkbox" defaultChecked="true" />
-        </div>
         <div className="buttons">
           <div className="add-product">
             {
@@ -37,7 +33,6 @@ function Admin({ isAdmin }) {
             {addProduct && <AddProduct />}
           </div>
 
-          <button className="account-btn">Save Changes</button>
           <button className="account-btn" onClick={authCtx.logout}>
             Log Out
           </button>

@@ -3,7 +3,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
 
 function AddProduct() {
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("men");
   const [imgUrl, SetImgUrl] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
@@ -24,36 +24,50 @@ function AddProduct() {
   const submitHandler = (event) => {
     event.preventDefault();
   };
-
   return (
     <div>
-      <form onSubmit={(event) => submitHandler(event)}>
+      <form
+        className="add-product-form"
+        onSubmit={(event) => submitHandler(event)}
+      >
         <label>Category</label>
-        <input
+        <select
           onChange={(event) => {
             setCategory(event.target.value);
           }}
-        />
+        >
+          <option value="men">Men</option>
+          <option value="women">Women</option>
+          <option value="electronics">Electronics</option>
+          <option value="jewellery">Jewellery</option>
+        </select>
         <label>Img URL</label>
         <input
           onChange={(event) => {
             SetImgUrl(event.target.value);
           }}
+          required
         />
         <label>Price</label>
         <input
           onChange={(event) => {
             setPrice(event.target.value);
           }}
+          required
         />
         <label>Description</label>
         <input
           onChange={(event) => {
             setDescription(event.target.value);
           }}
+          required
         />
 
-        <button type="submit" onClick={addNewProduct}>
+        <button
+          className="submit-product-btn"
+          type="submit"
+          onClick={addNewProduct}
+        >
           Submit
         </button>
       </form>

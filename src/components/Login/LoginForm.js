@@ -50,7 +50,8 @@ function LoginForm() {
         }
       })
       .then((data) => {
-        authCtx.login(data.idToken);
+        console.log(data.email);
+        authCtx.login(data.idToken, data.email);
         history.goBack();
       })
       .catch((error) => {

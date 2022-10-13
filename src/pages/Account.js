@@ -7,7 +7,6 @@ import "./Account.css";
 function Account() {
   const authCtx = useContext(AuthContext);
   const isLoggedIn = authCtx.isLoggedIn;
-  const admin = true;
 
   return (
     <div>
@@ -16,7 +15,7 @@ function Account() {
           <p>You need to login to view this page.</p>
         </div>
       )}
-      {isLoggedIn && (admin ? <Admin /> : <NotAdmin />)}
+      {isLoggedIn && (authCtx.isAdmin ? <Admin /> : <NotAdmin />)}
     </div>
   );
 }

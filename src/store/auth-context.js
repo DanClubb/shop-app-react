@@ -1,45 +1,63 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 const AuthContext = React.createContext({
-    token: '',
-    isLoggedIn: false,
-    login: (token) => {},
-    logout: () => {},
-})
+  token: "",
+  isLoggedIn: false,
+  login: (token, email) => {},
+  logout: () => {},
+});
 
-const retrieveStoredToken = () => {
-    const storedToken = localStorage.getItem('token')
+const retrieveStoredValues = () => {
+  const storedToken = localStorage.getItem("token");
+  const storedIsAdmin = localStorage.getItem("isAdmin");
 
-    return storedToken
-}
+  let values = {
+    storedToken,
+    storedIsAdmin,
+  };
+
+  return values;
+};
 
 export const AuthContextProvider = (props) => {
-    const initialToken = retrieveStoredToken()
-    const [token, setToken] = useState(initialToken)
+  const initialToken = retrieveStoredValues().storedToken;
+  const initialIsAdmin = retrieveStoredValues().storedIsAdmin;
 
-    const userIsLoggedIn = !!token
+  const [token, setToken] = useState(initialToken);
+  const [isAdmin, setIsAdmin] = useState(initialIsAdmin);
 
-    const loginHandler = (token) => {
-        setToken(token)
+  const userIsLoggedIn = !!token;
 
-        localStorage.setItem('token', token)
+  const loginHandler = (token, email) => {
+    setToken(token);
+    if (email === "admin@admin.com") {
+      setIsAdmin(true);
+      localStorage.setItem("isAdmin", email);
     }
 
-    const logoutHandler = () => {
-        setToken(null)
+    localStorage.setItem("token", token);
+  };
 
-        localStorage.removeItem('token')
-    }
+  const logoutHandler = () => {
+    setToken(null);
 
-    const contextValue = {
-        token: token, 
-        isLoggedIn: userIsLoggedIn,
-        login: loginHandler,
-        logout: logoutHandler,
-    }
+    localStorage.removeItem("token");
+    localStorage.removeItem("isAdmin");
+  };
 
-    return <AuthContext.Provider value={contextValue}>{props.children}</AuthContext.Provider>
-}
+  const contextValue = {
+    token: token,
+    isLoggedIn: userIsLoggedIn,
+    isAdmin: isAdmin,
+    login: loginHandler,
+    logout: logoutHandler,
+  };
 
+  return (
+    <AuthContext.Provider value={contextValue}>
+      {props.children}
+    </AuthContext.Provider>
+  );
+};
 
-export default AuthContext  
+export default AuthContext;

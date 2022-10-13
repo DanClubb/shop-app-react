@@ -15,6 +15,8 @@ export const UserProvider = ({ ...props }) => {
     return basket[id];
   });
 
+  console.log("test");
+
   useEffect(() => {
     const getProducts = async () => {
       const menData = await getDocs(collection(db, "Men"));
