@@ -12,12 +12,12 @@ function Checkout() {
   };
 
   return (
-    <div className="checkout">
+    <section className="checkout">
       <p className="total-price">
         Total:<span>{" £" + calculateTotalPrice()}</span>{" "}
       </p>
       <button className="checkout-button">Checkout</button>
-    </div>
+    </section>
   );
 }
 

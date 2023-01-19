@@ -64,7 +64,7 @@ function LoginForm() {
   };
 
   return (
-    <div>
+    <main>
       <h1>{isLogin ? "Login" : "Sign Up"}</h1>
       <section className="auth">
         <form onSubmit={submitHandler}>
@@ -102,7 +102,7 @@ function LoginForm() {
       >
         {errMessage}
       </p>
-    </div>
+    </main>
   );
 }
 

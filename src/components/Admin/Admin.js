@@ -15,7 +15,7 @@ function Admin({ isAdmin }) {
   };
 
   return (
-    <div>
+    <main>
       <h1>Your Account</h1>
       <div className="account-options">
         <div className="buttons">
@@ -38,7 +38,7 @@ function Admin({ isAdmin }) {
           </button>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 

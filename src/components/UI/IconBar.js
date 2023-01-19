@@ -13,7 +13,7 @@ function IconBar() {
   const numInBasket = Object.keys(basket).length;
 
   return (
-    <div className="icon-container">
+    <header className="icon-container">
       <Link to="/" className="icon icon-home">
         <img
           src="https://img.icons8.com/small/16/000000/home.png"
@@ -50,7 +50,7 @@ function IconBar() {
           <button className="login">Login</button>
         </Link>
       )}
-    </div>
+    </header>
   );
 }
 

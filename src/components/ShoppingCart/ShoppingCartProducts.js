@@ -11,7 +11,7 @@ function ShoppingCartProducts() {
   } = useUser();
 
   return (
-    <div className="cart">
+    <section className="cart">
       {productsInBasket &&
         productsInBasket.map((id) => (
           <article className="cart-product">
@@ -61,7 +61,7 @@ function ShoppingCartProducts() {
       {productsInBasket.length < 1 && (
         <p className="no-items">No items in cart</p>
       )}
-    </div>
+    </section>
   );
 }
 

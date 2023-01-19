@@ -5,7 +5,7 @@ function NotAdmin() {
   const authCtx = useContext(AuthContext);
 
   return (
-    <div>
+    <main>
       <h1>Your Account</h1>
       <div className="account-options">
         <div className="buttons">
@@ -14,7 +14,7 @@ function NotAdmin() {
           </button>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 

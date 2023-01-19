@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Route } from "react-router-dom";
 import IconBar from "./components/UI/IconBar";
 import Home from "./pages/Home";
@@ -11,7 +12,7 @@ import Account from "./pages/Account";
 
 function App() {
   return (
-    <div>
+    <Fragment>
       <IconBar />
       <Route exact path="/">
         <Home />
@@ -37,7 +38,7 @@ function App() {
       <Route path="/account">
         <Account />
       </Route>
-    </div>
+    </Fragment>
   );
 }
 

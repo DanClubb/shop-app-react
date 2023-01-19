@@ -2,10 +2,10 @@ import NavBar from "../components/UI/NavBar";
 
 function Jewellery() {
   return (
-    <div>
+    <main>
       <h1>Jewellery</h1>
       <NavBar />
-    </div>
+    </main>
   );
 }
 

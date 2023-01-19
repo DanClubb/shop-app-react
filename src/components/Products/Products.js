@@ -9,7 +9,7 @@ function Products(props) {
   };
 
   return (
-    <main className="products-container">
+    <section className="products-container">
       {Object.keys(products)
         .filter((id) => categoryFilter(id, props.category))
         .map((id, index) => (
@@ -57,7 +57,7 @@ function Products(props) {
             </button>
           </article>
         ))}
-    </main>
+    </section>
   );
 }
 

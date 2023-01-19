@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, Fragment } from "react";
 import NotAdmin from "../components/Admin/NotAdmin";
 import Admin from "../components/Admin/Admin";
 import AuthContext from "../store/auth-context";
@@ -9,14 +9,14 @@ function Account() {
   const isLoggedIn = authCtx.isLoggedIn;
 
   return (
-    <div>
+    <Fragment>
       {!isLoggedIn && (
-        <div>
+        <main>
           <p>You need to login to view this page.</p>
-        </div>
+        </main>
       )}
       {isLoggedIn && (authCtx.isAdmin ? <Admin /> : <NotAdmin />)}
-    </div>
+    </Fragment>
   );
 }
 
